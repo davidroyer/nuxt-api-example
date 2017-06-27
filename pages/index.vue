@@ -30,6 +30,9 @@ export default {
     return {
       content: HomeContent
     }
+  },
+  mounted () {
+    this.$store.dispatch('retrievePosts')
   }
 }
 </script>
