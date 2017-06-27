@@ -1,0 +1,4 @@
+# Redirect rules for Netlify
+* Doing this so there won't be a 404 error with SPA
+
+/*   /index.html   200
