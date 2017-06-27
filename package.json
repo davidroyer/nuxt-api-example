@@ -9,6 +9,7 @@
     "@nuxtjs/font-awesome": "^1.0.1",
     "@nuxtjs/markdownit": "^0.0.2",
     "axios": "^0.16.2",
+    "lodash": "^4.17.4",
     "node-sass": "^4.5.3",
     "nuxt": "latest",
     "nuxt-cli": "^0.0.1",

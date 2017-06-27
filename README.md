@@ -1,4 +1,4 @@
-# nuxt-markdown-example
+# Nuxt Api Example
 
 > An example of using markdown files for content with Nuxt.js / Vue.js
 

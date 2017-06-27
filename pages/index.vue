@@ -4,10 +4,10 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            Vuex with REST API Example
+             Nuxt API Example
           </h1>
           <h2 class="subtitle">
-            Getting data and loading routes
+            Using Vuex, axios, and a REST API with Nuxt
           </h2>
         </div>
       </div>

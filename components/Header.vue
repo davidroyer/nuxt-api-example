@@ -39,7 +39,7 @@
           <div class="nav-item">
             <div class="field is-grouped">
               <p class="control">
-                <a class="button is-primary" target="_blank" rel="noopener" href="https://github.com/davidroyer/nuxt-markdown-example">
+                <a class="button is-primary" target="_blank" rel="noopener" href="https://github.com/davidroyer/nuxt-api-example">
                   <span class="icon">
                     <i class="fa fa-github"></i>
                   </span>

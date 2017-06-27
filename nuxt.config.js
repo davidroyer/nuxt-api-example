@@ -1,39 +1,43 @@
 const { join } = require('path')
+const axios = require('axios')
+const _ = require('lodash')
 
 module.exports = {
   /*
   ** Headers of the page
   */
+
   head: {
-    title: 'Nuxt Example - Markdown Files',
+    title: 'Nuxt Example - API With Vuex',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js Example - Using Markdown Files by David Royer' }
+      { hid: 'description', name: 'description', content: 'Nuxt API Example - Using Vuex, axios, and a REST API with Nuxt by David Royer' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  /*
-  ** Customize the progress-bar color
-  */
   modules: [
     '@nuxtjs/bulma',
     '@nuxtjs/font-awesome',
     ['@nuxtjs/markdownit', { linkify: true } ]
-    // {
-    //   src: '@nuxtjs/markdownit',
-    //   options: { linkify: true }
-    // }
   ],
+  generate: {
+    routes: function() {
+      return axios.get('https://jsonplaceholder.typicode.com/posts')
+      .then((res) => {
+        return _.map(res.data, function(post, key) {
+          return `/posts/${post.id}`
+        })
+      })
+    }
+  },
   loading: { color: '#3B8070' },
   /*
   ** Build configuration
   */
   css: [
-    // 'hover.css/css/hover-min.css',
-    // 'bulma/bulma.sass',
     join('~assets/css/main.scss')
   ],
   router: {
