@@ -4,10 +4,10 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            Markdown files with Nuxt.js
+            Vuex with REST API Example
           </h1>
           <h2 class="subtitle">
-            Use a specfic file or dynamic importing
+            Getting data and loading routes
           </h2>
         </div>
       </div>

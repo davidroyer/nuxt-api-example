@@ -4,7 +4,7 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-            {{$route.params.id}}
+            {{computedPost.title}}
           </h1>
           <!-- <h2 class="subtitle">
             Use a specfic file or dynamic importing
@@ -12,7 +12,9 @@
         </div>
       </div>
     </section>
-
+    <section>
+      <div class="content" v-html="computedPost.body"></div>
+    </section>
   </div>
 </template>
 
@@ -22,10 +24,15 @@ export default {
   async fetch ({ store, params }) {
     let { data } = await axios.get(`posts/${params.id}`)
     console.log(data)
-    store.commit('loadPosts', {post: data})
+    store.commit('loadPost', {post: data})
   },
   data () {
     return {
+    }
+  },
+  computed: {
+    computedPost () {
+      return this.$store.state.post
     }
   }
 }

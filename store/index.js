@@ -6,7 +6,7 @@ const createStore = () => {
     state: {
       menuIsActive: false,
       posts: [],
-      currentPost: {}
+      post: {}
     },
     mutations: {
       toggleMenuState (state) {
@@ -16,12 +16,12 @@ const createStore = () => {
         state.posts = posts
       },
       loadPost: (state, {post}) => {
-        state.currentPost = post
+        state.post = post
       }
     },
     actions: {
       async retrievePosts ({commit}) {
-        axios.get('posts')
+        axios.get('/posts')
         .then((response) => {
           commit('loadPosts', {posts: response.data})
         })
@@ -30,23 +30,23 @@ const createStore = () => {
         })
       },
       async retrievePost ({commit}) {
-        axios.get('posts')
+        axios.get('/posts')
         .then((response) => {
-          commit('loadPosts', {posts: response.data})
+          commit('loadPosts', {post: response.data})
         })
         .catch(function (error) {
           console.log(error)
         })
-      },
-      async browserInit ({commit}) {
-        const { data } = await axios.get(`posts`)
-        commit('loadPosts', data)
       }
+      // async browserInit ({commit}) {
+      //   const { data } = await axios.get(`/posts`)
+      //   commit('loadPosts', data)
+      // }
     }
   })
 }
 
-createStore().dispatch('browserInit')
+// createStore().dispatch('browserInit')
 
 export default createStore
 

@@ -1,3 +1,7 @@
+Using Vues with a REST API
+
+**Info about the setup will go here...**
+
 The markdown files for this example live in the directory **markdownFiles**, inside the **static** folder.
 
 They are imported using webpack's import capability and loadered with the markdown-it module via [Nuxt.js modules](https://github.com/nuxt-community/modules).
