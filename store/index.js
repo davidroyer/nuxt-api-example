@@ -1,21 +1,26 @@
 import Vuex from 'vuex'
+import createPersistedState from 'vuex-persistedstate'
 import axios from '~plugins/axios.js'
 
 const createStore = () => {
   return new Vuex.Store({
     state: {
       menuIsActive: false,
-      posts: [],
-      post: {}
+      post: {},
+      posts: []
     },
+    plugins: [createPersistedState(
+      // getState: (key) =>
+    )],
     mutations: {
       toggleMenuState (state) {
         state.menuIsActive = !state.menuIsActive
       },
-      loadPosts: (state, { posts }) => {
+      setPosts: (state, { posts }) => {
         state.posts = posts
       },
-      loadPost: (state, {post}) => {
+      setCurrentPost: (state, post) => {
+        console.log('from store:  ', post)
         state.post = post
       }
     },
@@ -23,21 +28,36 @@ const createStore = () => {
       async retrievePosts ({commit}) {
         axios.get('/posts')
         .then((response) => {
-          commit('loadPosts', {posts: response.data})
+          commit('setPosts', {posts: response.data})
         })
         .catch(function (error) {
           console.log(error)
         })
       },
-      async retrievePost ({commit}) {
-        axios.get('/posts')
+      getPost ({commit}, id) {
+        console.log(id)
+        // let { data } = await axios.get(`posts/${params.id}`)
+        // const { data } = await axios.get(`posts/${id}`)
+        // commit('loadPost', {post: data})
+        axios.get(`posts/${id}`)
         .then((response) => {
-          commit('loadPosts', {post: response.data})
+          console.log(response.data)
+          commit('setCurrentPost', response.data)
         })
         .catch(function (error) {
           console.log(error)
         })
       }
+      // nuxtServerInit ({ dispatch, commit }, { store, params }) {
+      //   axios.get(`posts/${params.id}`)
+      //   .then((response) => {
+      //     console.log(response.data)
+      //     commit('setCurrentPost', response.data)
+      //   })
+      //   .catch(function (error) {
+      //     console.log(error)
+      //   })
+      // }
       // async browserInit ({commit}) {
       //   const { data } = await axios.get(`/posts`)
       //   commit('loadPosts', data)

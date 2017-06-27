@@ -40,7 +40,7 @@ export default {
   // },
   async asyncData ({store}) {
     const {data} = await axios.get('posts')
-    store.commit('loadPosts', {posts: data})
+    store.commit('setPosts', {posts: data})
     // return { posts: data }
   },
   components: {

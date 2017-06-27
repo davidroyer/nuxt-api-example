@@ -13,7 +13,8 @@
     "node-sass": "^4.5.3",
     "nuxt": "latest",
     "nuxt-cli": "^0.0.1",
-    "sass-loader": "^6.0.6"
+    "sass-loader": "^6.0.6",
+    "vuex-persistedstate": "^1.4.1"
   },
   "scripts": {
     "dev": "nuxt",
