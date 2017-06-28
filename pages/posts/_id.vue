@@ -3,9 +3,12 @@
     <section class="hero is-primary">
       <div class="hero-body">
         <div class="container">
+
           <a @click.stop="$router.push('/postsview')" class="backButton">
-            <span class="icon is-large">
-              <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+            fa-twitter on fa-square-o<br>
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+              <i class="fa fa-arrow-left fa-stack-1x" aria-hidden="true"></i>
             </span>
           </a>
           <h1 class="title">
@@ -73,11 +76,12 @@ export default {
   position: fixed;
   left: 10px;
   bottom: 10px;
-
+  z-index: 9;
+  transition: .3s ease;
   i {
-    color: #3273dc;
+    &.fa-circle {
+        color: #3273dc;
+    }
   }
 }
-
-
 </style>
