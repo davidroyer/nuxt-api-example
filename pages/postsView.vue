@@ -20,20 +20,26 @@
 </template>
 
 <script>
-import axios from '~plugins/axios.js'
+
 export default {
   head () {
     return {
-      // title: this.title
+      title: 'Posts Listing'
     }
   },
-  async fetch ({store}) {
-    const {data} = await axios.get('posts')
-    store.commit('setPosts', {posts: data})
+  fetch ({store}) {
+    // const {data} = await axios.get('posts')
+    // store.commit('setPosts', {posts: data})
+    store.dispatch('getPosts')
   },
   computed: {
     Posts () {
       return this.$store.state.posts
+    }
+  },
+  data () {
+    return {
+      title: 'Posts Listing'
     }
   }
 }

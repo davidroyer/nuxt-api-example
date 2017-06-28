@@ -10,13 +10,6 @@ import SiteHeader from '~components/Header.vue'
 export default {
   components: {
     SiteHeader
-  },
-  beforeRouteLeave (to, from, next) {
-    console.log(this)
-    // this.menuIsActive = false
-    // called when the route that renders this component is about to
-    // be navigated away from.
-    // has access to `this` component instance.
   }
 }
 </script>

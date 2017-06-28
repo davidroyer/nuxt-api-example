@@ -13,22 +13,20 @@
       </div>
     </section>
     <div class="container">
-      <!-- <logo/> -->
       <div v-html="content" class="contentWrapper content"></div>
     </div>
   </div>
 </template>
 
 <script>
-
-import HomeContent from '~static/markdownFiles/HomeContent.md'
-export default {
-  data () {
-    return {
-      content: HomeContent
+  import HomeContent from '~static/markdownFiles/HomeContent.md'
+  export default {
+    data () {
+      return {
+        content: HomeContent
+      }
     }
   }
-}
 </script>
 
 <style>

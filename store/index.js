@@ -15,7 +15,7 @@ const createStore = () => {
       toggleMenuState (state) {
         state.menuIsActive = !state.menuIsActive
       },
-      setPosts: (state, { posts }) => {
+      setPosts: (state, posts) => {
         state.posts = posts
       },
       setCurrentPost: (state, post) => {
@@ -27,13 +27,15 @@ const createStore = () => {
     },
     actions: {
       async getPosts ({commit}) {
-        axios.get('/posts')
-        .then((response) => {
-          commit('setPosts', {posts: response.data})
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
+        let {data} = await axios.get(`posts`)
+        commit('setPosts', data)
+        // axios.get('/posts')
+        // .then((response) => {
+        //   commit('setPosts', {posts: response.data})
+        // })
+        // .catch(function (error) {
+        //   console.log(error)
+        // })
       },
       async getPost ({commit, store}, id) {
         // console.log(store)

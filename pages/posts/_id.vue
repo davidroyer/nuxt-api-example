@@ -33,11 +33,16 @@ function titleCase (title) {
 export default {
   head () {
     return {
-      title: titleCase(this.post.title)
+      title: this.title
     }
   },
   fetch ({ store, params }) {
     store.dispatch('getPost', params.id)
+  },
+  asyncData ({store}) {
+    return {
+      title: titleCase(store.state.post.title)
+    }
   },
   computed: {
     post () {
@@ -60,7 +65,7 @@ export default {
   position: fixed;
   left: 10px;
   bottom: 10px;
-  
+
   i {
     color: #363636 !important;
   }

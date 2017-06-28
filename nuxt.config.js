@@ -6,9 +6,9 @@ module.exports = {
   /*
   ** Headers of the page
   */
-
   head: {
-    title: 'Nuxt Example - API With Vuex',
+    title: ' Nuxt API Example With Vuex - David Royer',
+    titleTemplate: '%s - Nuxt API Example - David Royer',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

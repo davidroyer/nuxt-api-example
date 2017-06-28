@@ -2,6 +2,7 @@
 
 - Nuxt's fetch() method is used to fill our Vuex Store for our posts listing page and for the dynamic post page for individual post
 - The head property for the dynamic post route is using the title property from the returned post object to set the meta title property
+- We're using Nuxt's nuxtServerInit method to handle displaying the correct post on the dynamic post route if the page's content is delivered via server
 
 ### Other project info
 
