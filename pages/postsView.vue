@@ -50,7 +50,7 @@ export default {
     display: block;
     margin: 1em;
     padding: 1em;
-    width: 300px;
+    flex: 1 1 200px;
     text-transform: capitalize;
 
     &:hover {

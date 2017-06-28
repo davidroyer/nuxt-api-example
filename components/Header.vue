@@ -63,4 +63,10 @@ export default {
   opacity: 0;
 }
 
+.nav {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 </style>

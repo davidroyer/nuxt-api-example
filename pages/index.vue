@@ -35,9 +35,24 @@
   }
 </script>
 
-<style>
+<style lang="scss">
 .contentContainer {
   padding: 1em 0 3em 0;
+
+  h2 {
+    font-size: 1.5em;
+  }
+  h3 {
+    font-size: 1.25em;
+  }
+  @media (min-width: 769px) {
+    h2 {
+      font-size: 1.75em;
+    }
+    h3 {
+      font-size: 1.5em;
+    }
+  }
 }
 
 .viewPostsButton {
