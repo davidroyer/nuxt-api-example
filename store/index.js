@@ -2,6 +2,7 @@ import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 import axios from '~plugins/axios.js'
 
+// console.log(createPersistedState)
 const createStore = () => {
   return new Vuex.Store({
     state: {
@@ -34,10 +35,24 @@ const createStore = () => {
         let {data} = await axios.get(`posts/${id}`)
         commit('setCurrentPost', data)
       },
-      async nuxtServerInit ({commit}, {isServer, params}) {
+      async nuxtServerInit ({commit}, {store, isClient, isServer, route, params}) {
+        let posts = store.state.posts
+
+        if (isServer && route.name === 'postsview' && !posts.length) {
+          console.log('FIRED!!!')
+          let {data} = await axios.get('posts')
+          commit('setPosts', data)
+        }
+
         if (isServer && params.id) {
           let {data} = await axios.get(`posts/${params.id}`)
           commit('setCurrentPost', data)
+        }
+
+        if (isClient && route.name) {
+          console.log(store)
+          let {data} = await axios.get('posts')
+          commit('setPosts', data)
         }
       }
     }
