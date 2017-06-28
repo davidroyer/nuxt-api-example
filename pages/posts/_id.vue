@@ -5,7 +5,6 @@
         <div class="container">
 
           <a @click.stop="$router.push('/postsview')" class="backButton">
-            fa-twitter on fa-square-o<br>
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
               <i class="fa fa-arrow-left fa-stack-1x" aria-hidden="true"></i>

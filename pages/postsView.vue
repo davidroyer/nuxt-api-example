@@ -9,11 +9,13 @@
       </div>
     </section>
     <section>
-      <p class="title"></p>
-      <div class="postsWrapper">
-        <template v-for="post in Posts">
-          <nuxt-link class="card" :key="post.id" :to="'/posts/'+post.id">{{post.title}}</nuxt-link>
-        </template>
+      <div class="container">
+        <p class="title"></p>
+        <div class="postsWrapper">
+          <template v-for="post in Posts">
+            <nuxt-link class="card" :key="post.id" :to="'/posts/'+post.id">{{post.title}}</nuxt-link>
+          </template>
+        </div>
       </div>
     </section>
   </div>
@@ -42,7 +44,7 @@ export default {
 .postsWrapper {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 
   a {
     display: block;
