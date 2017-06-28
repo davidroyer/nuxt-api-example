@@ -1,7 +1,7 @@
 <template lang="html">
     <nav class="nav has-shadow">
       <div class="nav-left">
-        <nuxt-link class="siteTitle nav-item" to="/">Vuex REST API Example</nuxt-link>
+        <nuxt-link class="siteTitle nav-item" to="/">Nuxt API Example</nuxt-link>
       </div>
         <span class="nav-toggle" :class="{'is-active': menuIsActive}" @click="$store.commit('toggleMenuState')">
           <span></span>

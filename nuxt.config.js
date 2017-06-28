@@ -41,7 +41,7 @@ module.exports = {
     join('~assets/css/main.scss')
   ],
   router: {
-    middleware: 'test'
+    middleware: 'menu'
   },
   build: {
     /*

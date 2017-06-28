@@ -4,10 +4,10 @@
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
-             Nuxt API Example
+             Vuex, axios, and a REST API with Nuxt
           </h1>
           <h2 class="subtitle">
-            Using Vuex, axios, and a REST API with Nuxt
+            Showing a collections of posts and using dynamic routes for individual posts
           </h2>
         </div>
       </div>
@@ -20,12 +20,9 @@
 </template>
 
 <script>
-import Logo from '~components/Logo.vue'
+
 import HomeContent from '~static/markdownFiles/HomeContent.md'
 export default {
-  components: {
-    Logo
-  },
   data () {
     return {
       content: HomeContent
@@ -35,5 +32,4 @@ export default {
 </script>
 
 <style>
-
 </style>

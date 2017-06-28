@@ -23,21 +23,25 @@
 </template>
 
 <script>
-// import axios from '~/plugins/axios'
+
+function titleCase (title) {
+  return title.replace(/\w\S*/g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+  })
+}
+
 export default {
+  head () {
+    return {
+      title: titleCase(this.post.title)
+    }
+  },
   fetch ({ store, params }) {
     store.dispatch('getPost', params.id)
   },
-  // async fetch ({ store, params }) {
-  //   let { data } = await axios.get(`posts/${params.id}`)
-  //   store.commit('setCurrentPost', data)
-  // },
   computed: {
     post () {
       return this.$store.state.post
-    },
-    test () {
-      return this.$store.state.test
     }
   }
 }
@@ -56,6 +60,7 @@ export default {
   position: fixed;
   left: 10px;
   bottom: 10px;
+  
   i {
     color: #363636 !important;
   }

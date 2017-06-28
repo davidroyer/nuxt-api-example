@@ -1,19 +1,17 @@
-# Nuxt Api Example
+# Nuxt API Example
 
-> An example of using markdown files for content with Nuxt.js / Vue.js
+> An example of using Vuex, axios, and a REST API with Nuxt
 
-The markdown files for this example live in the directory **markdownFiles**, inside the **static** folder.
+## A couple things that are setup for this example that could be of interest to someone...
 
-They are imported using webpack's import capability and loadered with the markdown-it module via [Nuxt.js modules](https://github.com/nuxt-community/modules).
+- Nuxt's fetch() method is used to fill our Vuex Store for our posts listing page and for the dynamic post page for individual post
+- The head property for the dynamic post route is using the title property from the returned post object to set the meta title property
 
-This content you are reading at this very moment is actually a markdown file. It's titled home.md and can find it in the **markdownFiles** directory.
+### Other project info
 
-Inside the **markdownFiles** directory, you will find 2 other files
-- test1.md
-- test2.md
-
-They are used to show the dynamic import ability of webpack and that can be seen in **dynamic/_slug.vue**
-
+- Nuxt Modules are used to add Bulma, markdown-it, and font-awesome
+- The menu.js file inside the middleware directory is used to handle closing the mobile dropdown menu once a link is selected
+- I am using Netlify for hosting this as a static site
 ## Build Setup
 
 ``` bash

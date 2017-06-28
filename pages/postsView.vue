@@ -22,6 +22,11 @@
 <script>
 import axios from '~plugins/axios.js'
 export default {
+  head () {
+    return {
+      // title: this.title
+    }
+  },
   async fetch ({store}) {
     const {data} = await axios.get('posts')
     store.commit('setPosts', {posts: data})
