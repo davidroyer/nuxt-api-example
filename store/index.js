@@ -7,6 +7,7 @@ const createStore = () => {
     state: {
       menuIsActive: false,
       post: {},
+      test: {},
       posts: []
     },
     plugins: [createPersistedState()],
@@ -19,6 +20,9 @@ const createStore = () => {
       },
       setCurrentPost: (state, post) => {
         state.post = post
+      },
+      setTestPost: (state, post) => {
+        state.test = post
       }
     },
     actions: {
@@ -31,20 +35,32 @@ const createStore = () => {
           console.log(error)
         })
       },
-      getPost ({commit, store}, id) {
-        console.log(store)
+      async getPost ({commit, store}, id) {
+        // console.log(store)
         // let { data } = await axios.get(`posts/${id}`)
         // const { data } = await axios.get(`posts/${id}`)
         // commit('loadPost', {post: data})
+        let {data} = await axios.get(`posts/${id}`)
+        commit('setCurrentPost', data)
 
-        return axios.get(`posts/${id}`)
-        .then((response) => {
-          console.log('RESPONSE: ', response.data)
-          commit('setCurrentPost', response.data)
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
+        // return axios.get(`posts/${id}`)
+        // .then((response) => {
+        //   console.log('RESPONSE: ', response.data)
+        //   commit('setCurrentPost', response.data)
+        // })
+        // .catch(function (error) {
+        //   console.log(error)
+        // })
+      },
+      async nuxtServerInit ({commit}, {isServer, params}) {
+        if (isServer && params.id) {
+          let {data} = await axios.get(`posts/${params.id}`)
+          commit('setCurrentPost', data)
+        }
+        // if (params.id) {
+        //   let {data} = await axios.get(`posts/${params.id}`)
+        //   commit('setCurrentPost', data)
+        // }
       }
       // nuxtServerInit ({ dispatch, commit }, { store, params }) {
       //   axios.get(`posts/${params.id}`)

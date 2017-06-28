@@ -23,18 +23,21 @@
 </template>
 
 <script>
-import axios from '~/plugins/axios'
+// import axios from '~/plugins/axios'
 export default {
-  // fetch ({ store, params }) {
-  //   store.dispatch('getPost', params.id)
-  // },
-  async fetch ({ store, params }) {
-    let { data } = await axios.get(`posts/${params.id}`)
-    store.commit('setCurrentPost', data)
+  fetch ({ store, params }) {
+    store.dispatch('getPost', params.id)
   },
+  // async fetch ({ store, params }) {
+  //   let { data } = await axios.get(`posts/${params.id}`)
+  //   store.commit('setCurrentPost', data)
+  // },
   computed: {
     post () {
       return this.$store.state.post
+    },
+    test () {
+      return this.$store.state.test
     }
   }
 }
