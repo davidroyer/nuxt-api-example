@@ -9,9 +9,7 @@ const createStore = () => {
       post: {},
       posts: []
     },
-    plugins: [createPersistedState(
-      // getState: (key) =>
-    )],
+    plugins: [createPersistedState()],
     mutations: {
       toggleMenuState (state) {
         state.menuIsActive = !state.menuIsActive
@@ -20,12 +18,11 @@ const createStore = () => {
         state.posts = posts
       },
       setCurrentPost: (state, post) => {
-        console.log('from store:  ', post)
         state.post = post
       }
     },
     actions: {
-      async retrievePosts ({commit}) {
+      async getPosts ({commit}) {
         axios.get('/posts')
         .then((response) => {
           commit('setPosts', {posts: response.data})
@@ -34,14 +31,15 @@ const createStore = () => {
           console.log(error)
         })
       },
-      getPost ({commit}, id) {
-        console.log(id)
-        // let { data } = await axios.get(`posts/${params.id}`)
+      getPost ({commit, store}, id) {
+        console.log(store)
+        // let { data } = await axios.get(`posts/${id}`)
         // const { data } = await axios.get(`posts/${id}`)
         // commit('loadPost', {post: data})
-        axios.get(`posts/${id}`)
+
+        return axios.get(`posts/${id}`)
         .then((response) => {
-          console.log(response.data)
+          console.log('RESPONSE: ', response.data)
           commit('setCurrentPost', response.data)
         })
         .catch(function (error) {

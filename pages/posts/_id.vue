@@ -29,9 +29,7 @@ export default {
   //   store.dispatch('getPost', params.id)
   // },
   async fetch ({ store, params }) {
-    console.log(params.id)
     let { data } = await axios.get(`posts/${params.id}`)
-    console.log(data)
     store.commit('setCurrentPost', data)
   },
   computed: {

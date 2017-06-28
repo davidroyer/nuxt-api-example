@@ -3,38 +3,16 @@
       <div class="nav-left">
         <nuxt-link class="siteTitle nav-item" to="/">Vuex REST API Example</nuxt-link>
       </div>
-
-      <!-- <div class="nav-center">
-        <a class="nav-item">
-          <span class="icon">
-            <i class="fa fa-github"></i>
-          </span>
-        </a>
-        <a class="nav-item">
-          <span class="icon">
-            <i class="fa fa-twitter"></i>
-          </span>
-        </a>
-      </div> -->
-
-      <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
-      <!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
-
         <span class="nav-toggle" :class="{'is-active': menuIsActive}" @click="$store.commit('toggleMenuState')">
           <span></span>
           <span></span>
           <span></span>
         </span>
 
-
-      <!-- This "nav-menu" is hidden on mobile -->
-      <!-- Add the modifier "is-active" to display it on mobile -->
       <transition mode="out-in" name="slide" appear>
         <div class="nav-right nav-menu" :class="{'is-active': menuIsActive}">
 
           <nuxt-link class="nav-item" to="/postsview">Posts</nuxt-link>
-          <!-- <nuxt-link class="nav-item" to="/dynamic/test1">Post 1</nuxt-link>
-          <nuxt-link class="nav-item" to="/dynamic/test2">Post 2</nuxt-link> -->
 
           <div class="nav-item">
             <div class="field is-grouped">
@@ -58,18 +36,10 @@
 import { mapState } from 'vuex'
 
 export default {
-  data () {
-    return {
-      // menuIsActive: false
-    }
-  },
   computed: mapState([
     'menuIsActive'
   ]),
   methods: {
-    handleMenu () {
-      this.menuIsActive = false
-    },
     testState () {
       this.$store.commit('toggleMenuState')
     }

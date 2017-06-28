@@ -3,12 +3,8 @@
     <section class="hero is-primary">
       <div class="hero-body">
         <div class="container">
-          <h1 class="title">
-            Posts
-          </h1>
-          <h2 class="subtitle">
-            Displaying some posts
-          </h2>
+          <h1 class="title">Posts</h1>
+          <h2 class="subtitle">Displaying some posts</h2>
         </div>
       </div>
     </section>
@@ -19,11 +15,6 @@
           <nuxt-link class="card" :key="post.id" :to="'/posts/'+post.id">{{post.title}}</nuxt-link>
         </template>
       </div>
-      <!-- <div class="postsWrapper">
-        <template v-for="post in Posts">
-          <nuxt-link class="card" :key="post.id" :to="'/posts/'+post.id">{{post.title}}</nuxt-link>
-        </template>
-      </div> -->
     </section>
   </div>
 </template>
@@ -31,30 +22,14 @@
 <script>
 import axios from '~plugins/axios.js'
 export default {
-  // async fetch ({ store, params }) {
-  //   console.log(params)
-  //   store.dispatch('retrievePosts')
-  // },
-  // async asyncData ({store}) {
-  //   return { Posts: store.state.posts }
-  // },
-  async asyncData ({store}) {
+  async fetch ({store}) {
     const {data} = await axios.get('posts')
     store.commit('setPosts', {posts: data})
-    // return { posts: data }
-  },
-  components: {
   },
   computed: {
     Posts () {
       return this.$store.state.posts
     }
-  },
-  data () {
-    return {
-    }
-  },
-  mounted () {
   }
 }
 </script>
