@@ -62,7 +62,7 @@ export default {
   bottom: 10px;
 
   i {
-    color: #363636 !important;
+    color: #3273dc;
   }
 }
 
