@@ -28,18 +28,11 @@ export default {
     }
   },
   fetch ({store}) {
-    // const {data} = await axios.get('posts')
-    // store.commit('setPosts', {posts: data})
     store.dispatch('getPosts')
   },
   computed: {
     Posts () {
       return this.$store.state.posts
-    }
-  },
-  data () {
-    return {
-      title: 'Posts Listing'
     }
   }
 }

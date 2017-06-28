@@ -30,12 +30,10 @@ const createStore = () => {
         let {data} = await axios.get(`posts`)
         commit('setPosts', data)
       },
-
       async getPost ({commit, store}, id) {
         let {data} = await axios.get(`posts/${id}`)
         commit('setCurrentPost', data)
       },
-        
       async nuxtServerInit ({commit}, {isServer, params}) {
         if (isServer && params.id) {
           let {data} = await axios.get(`posts/${params.id}`)
