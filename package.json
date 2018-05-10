@@ -7,7 +7,7 @@
   "dependencies": {
     "@nuxtjs/bulma": "^1.0.1",
     "@nuxtjs/font-awesome": "^1.0.1",
-    "@nuxtjs/markdownit": "^0.0.2",
+    "@nuxtjs/markdownit": "latest",
     "axios": "^0.16.2",
     "js-cookie": "^2.1.4",
     "lodash": "^4.17.4",
